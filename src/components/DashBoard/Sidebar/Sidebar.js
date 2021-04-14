@@ -6,8 +6,8 @@ import { faCog, faSignOutAlt, faCalendar, faGripHorizontal, faUsers, faUserPlus 
 import { UserContext } from '../../../App';
 
 const Sidebar = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    let { path, url } = useRouteMatch();
+    const [setLoggedInUser] = useContext(UserContext);
+    let { url } = useRouteMatch();
     return (
         <div className="sidebar d-flex flex-column justify-content-between col py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">

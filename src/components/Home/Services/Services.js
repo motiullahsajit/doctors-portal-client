@@ -31,7 +31,7 @@ const Services = () => {
             </div>
             <div className="row g-4 my-5">
                 {
-                    serviceData.map(service => <ServiceDetail service={service} />)
+                    serviceData.map(service => <ServiceDetail key={service.name} service={service} />)
                 }
             </div>
         </section>

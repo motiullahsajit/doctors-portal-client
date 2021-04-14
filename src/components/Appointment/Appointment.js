@@ -15,7 +15,7 @@ const Appointment = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
     useEffect(() => {
-        fetch(`http://localhost:5050/userAppointments?email=${loggedInUser.email}`, {
+        fetch(`https://server-doctors-portal.herokuapp.com/userAppointments?email=${loggedInUser.email}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const Appointment = () => {
         })
             .then(res => res.json())
             .then(data => setPreAppointments(data))
-    }, [])
+    }, [loggedInUser.email])
 
     const handleDateChange = date => {
         setSelectedDate(date)

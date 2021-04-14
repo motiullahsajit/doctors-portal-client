@@ -5,7 +5,7 @@ import AppointDashCards from '../AppointDashCards/AppointDashCards';
 const AppointmentDash = ({selectedDate}) => {
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5050/appointments')
+        fetch('https://server-doctors-portal.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data => setAppointments(data))
     }, [])

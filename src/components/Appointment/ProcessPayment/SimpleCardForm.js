@@ -8,21 +8,11 @@ const SimpleCardForm = ({ handlePaymentSuccess }) => {
     const [paymentSuccess, setPaymentSuccess] = useState(null)
 
     const handleSubmit = async (event) => {
-        // Block native form submission.
         event.preventDefault();
-
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
             return;
         }
-
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
         const cardElement = elements.getElement(CardElement);
-
-        // Use your card Element with other Stripe.js APIs
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card: cardElement,
@@ -42,18 +32,11 @@ const SimpleCardForm = ({ handlePaymentSuccess }) => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <CardElement />
-                <button type="submit" disabled={!stripe}>
+                <CardElement className='my-3' />
+                <button className='btn btn-brand' type="submit" disabled={!stripe}>
                     Pay
                 </button>
             </form>
-            {/* {
-                paymentError && <p className='text-danger'>{paymentError}</p>
-            }
-            {
-                paymentSuccess && <p className='text-success'>{paymentSuccess}</p>
-            } */}
-
             <p className='text-danger'>{paymentError}</p>
             <p className='text-success'>{paymentSuccess}</p>
         </>

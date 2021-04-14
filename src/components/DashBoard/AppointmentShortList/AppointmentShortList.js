@@ -14,15 +14,15 @@ const AppointmentShortList = ({ appointments }) => {
             </thead>
             <tbody>
                 {
-                    appointments.map((appointment, index) =>
-
-                        <tr>
+                    appointments.map((appointment, index) => <>
+                        <tr key={index}>
                             <td>{appointment.name}</td>
                             <td>{appointment.phone}</td>
                             <td>{appointment.email}</td>
                             <td>{appointment.service}</td>
                             <td>{(new Date(appointment.date).toDateString('dd/mm/yyyy'))}</td>
                         </tr>
+                    </>
                     )
                 }
             </tbody>

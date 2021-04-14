@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 
 const Navbar = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const [isDoctor, setIsDoctor] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5050/isDoctor', {
+        fetch('https://server-doctors-portal.herokuapp.com/isDoctor', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -16,7 +16,7 @@ const Navbar = () => {
         })
             .then(res => res.json())
             .then(data => setIsDoctor(data))
-    }, [])
+    }, [loggedInUser.email])
 
     return (
         <>

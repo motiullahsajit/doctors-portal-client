@@ -21,7 +21,7 @@ const DashBoard = () => {
     const handleDateChange = date => {
         setSelectedDate(date)
     };
-    let { path, url } = useRouteMatch();
+    let { path } = useRouteMatch();
     return (
         <section>
             <div style={containerStyle} className="row">
@@ -32,7 +32,7 @@ const DashBoard = () => {
                     <Navbar />
                     <Switch>
                         <Route exact path={path}>
-                            <AppointmentDash selectedDate={selectedDate}/>
+                            <AppointmentDash selectedDate={selectedDate} />
                         </Route>
                         <Route path={`${path}/appointments`}>
                             <div className="row">

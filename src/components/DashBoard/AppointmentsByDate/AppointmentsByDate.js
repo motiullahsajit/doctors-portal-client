@@ -3,11 +3,11 @@ import AppointmentShortList from '../AppointmentShortList/AppointmentShortList';
 import { UserContext } from '../../../App';
 
 const AppointmentsByDate = ({ selectedDate }) => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const [loggedInUser] = useContext(UserContext)
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5050/appointmentsByDate', {
+        fetch('https://server-doctors-portal.herokuapp.com/appointmentsByDate', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

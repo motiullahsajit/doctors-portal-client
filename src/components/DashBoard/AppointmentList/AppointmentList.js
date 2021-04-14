@@ -3,7 +3,7 @@ import React from 'react';
 const AppointmentList = ({ appointments }) => {
 
     const handleAddToPatients = (appointment) => {
-        fetch('http://localhost:5050/addPatient', {
+        fetch('https://server-doctors-portal.herokuapp.com/addPatient', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -20,7 +20,7 @@ const AppointmentList = ({ appointments }) => {
     }
 
     const handleAddDelete = id => {
-        fetch(`http://localhost:5050/deleteAppoinment/${id}`, {
+        fetch(`https://server-doctors-portal.herokuapp.com/deleteAppoinment/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

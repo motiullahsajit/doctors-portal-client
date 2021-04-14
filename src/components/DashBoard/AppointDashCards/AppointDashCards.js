@@ -6,11 +6,11 @@ import AppointmentCard from '../AppointmentDash/AppointmentCard/AppointmentCard'
 
 const AppointDashCards = ({ appointments, selectedDate }) => {
 
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const [loggedInUser] = useContext(UserContext)
     const [appointmentsbyDate, setAppointmentsByDate] = useState([]);
     const [patients, setPatients] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5050/appointmentsByDate', {
+        fetch('https://server-doctors-portal.herokuapp.com/appointmentsByDate', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -23,7 +23,7 @@ const AppointDashCards = ({ appointments, selectedDate }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5050/patients')
+        fetch('https://server-doctors-portal.herokuapp.com/patients')
             .then(res => res.json())
             .then(data => setPatients(data))
     }, [])
@@ -53,7 +53,7 @@ const AppointDashCards = ({ appointments, selectedDate }) => {
     return (
         <div className='row d-flex justify-content-around'>
             {
-                appointmentCart.map(appointment => <AppointmentCard appointment={appointment} />)
+                appointmentCart.map(appointment => <AppointmentCard key={appointment.subject} appointment={appointment} />)
             }
         </div>
     );

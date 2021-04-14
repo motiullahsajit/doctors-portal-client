@@ -13,13 +13,13 @@ const testimonials = [
         image: person1
     },
     {
-        name: 'Winson Herry',
+        name: 'Winson Herren',
         from: 'California',
         meassage: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using ‘Content here, content',
         image: person2
     },
     {
-        name: 'Winson Herry',
+        name: 'Ema Winson ',
         from: 'California',
         meassage: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using ‘Content here, content',
         image: person3
@@ -37,12 +37,12 @@ const Testimonials = () => {
                     </h2>
                 </div>
                 <div className="col-md-2">
-                    <img src={testimonialicon} className='img-fluid' alt=""/>
+                    <img src={testimonialicon} className='img-fluid' alt="" />
                 </div>
             </div>
             <div className="row d-flex justify-content-around">
                 {
-                    testimonials.map(testimonial => <TestimonialCard testimonial={testimonial} />)
+                    testimonials.map(testimonial => <TestimonialCard key={testimonial.name} testimonial={testimonial} />)
                 }
             </div>
         </div>

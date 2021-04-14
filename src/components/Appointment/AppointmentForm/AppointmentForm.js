@@ -19,7 +19,7 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const [appointmentData, setAppointmentData] = useState(null)
@@ -31,31 +31,9 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
         setAppointmentData(data)
     };
 
-    // const onSubmit = data => {
-    //     setAppointmentData(data)
-    //     data.service = appointmentOn;
-    //     data.date = date;
-    //     data.created = new Date();
-    //     console.log(data)
-    //     fetch('http://localhost:5050/addAppointment', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-    //         .then(success => {
-    //             if (success) {
-    //                 closeModal();
-    //                 alert('Appointment created successfully')
-    //             }
-    //         })
-    // };
-
     const handlePaymentSuccess = (paymentId) => {
         appointmentData.paymentId = paymentId;
-        fetch('http://localhost:5050/addAppointment', {
+        fetch('https://server-doctors-portal.herokuapp.com/addAppointment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -118,9 +96,11 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                         <button type="submit" className="btn btn-brand">Submit</button>
                     </div>
                 </form>
-                <div style={{ display: appointmentData ? "block" : "none" }}>
-                    <h2>Please Pay Here</h2>
-                    <ProcessPayment handlePaymentSuccess={handlePaymentSuccess} />
+                <div className='p-5' style={{ display: appointmentData ? "block" : "none" }}>
+                    <div className="m-5">
+                        <h4 className='text-brand text-center'>Please Pay Here</h4>
+                        <ProcessPayment handlePaymentSuccess={handlePaymentSuccess} />
+                    </div>
                 </div>
             </Modal>
         </div>

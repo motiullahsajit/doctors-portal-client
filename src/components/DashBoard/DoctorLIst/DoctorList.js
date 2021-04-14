@@ -3,7 +3,7 @@ import React from 'react';
 const DoctorList = ({ doctor }) => {
 
     const handleAddDelete = id => {
-        fetch(`http://localhost:5050/removeDoctor/${id}`, {
+        fetch(`https://server-doctors-portal.herokuapp.com/removeDoctor/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
