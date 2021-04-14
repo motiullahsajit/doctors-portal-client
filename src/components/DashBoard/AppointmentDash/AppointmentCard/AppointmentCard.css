@@ -1,0 +1,14 @@
+.card-row:nth-child(4n + 1) {
+    background: #F1536E;
+  }
+  
+  .card-row:nth-child(4n + 2) {
+    background: #3DA5F4;
+  }
+  
+  .card-row:nth-child(4n + 3) {
+    background: #00C689;
+  }
+  .card-row:nth-child(4n + 4) {
+    background: #FDA006;
+  }
