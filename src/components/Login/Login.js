@@ -65,6 +65,19 @@ const Login = () => {
         }
     }
 
+    const handleDemoUser = e => {
+        e.preventDefault();
+        signInWithEmailAndPassword('admin@gmail.com', '123456').then(res => {
+            handleResponse(res, true)
+        }).catch(error => { setError(error) })
+    }
+    const handleDemoAdmin = e => {
+        e.preventDefault();
+        signInWithEmailAndPassword('ema@gmail.com', '123456').then(res => {
+            handleResponse(res, true)
+        }).catch(error => { setError(error) })
+    }
+
     const signOut = (e) => {
         handleSignOut().then(res => {
             handleResponse(res, false)
@@ -131,6 +144,9 @@ const Login = () => {
                             </form>
                             <h4 className='text-brand text-center'>Or</h4>
                             <button type="submit" onClick={handleGoogleSingIn} className="btn btn-brand my-1 w-100">Continue With Google</button>
+
+                            <button onClick={handleDemoUser} className="btn btn-brand my-2 text-white w-100">User Demo Login</button>  
+                            <button onClick={handleDemoAdmin} className="btn btn-brand my-2 text-white w-100">Admin Demo Login</button>
                         </div>
                         <div className="col-md-4">
                             <img src={loginImg} className='img-fluid' alt="" />

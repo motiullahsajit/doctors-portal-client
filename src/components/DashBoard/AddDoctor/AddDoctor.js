@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
@@ -37,6 +38,16 @@ const AddDoctor = () => {
             .catch(error => {
                 console.error(error)
             })
+
+
+    //     axios.post('http://localhost:5050/addADoctor', formData)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             history.push('/dashboard')
+    //         })
+    //         .catch(error => {
+    //             console.error(error)
+    //         })
     }
 
     return (

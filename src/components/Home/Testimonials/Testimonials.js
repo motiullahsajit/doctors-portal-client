@@ -31,7 +31,7 @@ const Testimonials = () => {
         <div className='my-5 container'>
             <div className="d-flex justify-content-between align-items-center my-3">
                 <div className="col-md-10">
-                    <h4 style={{ color: '#1CC7C1' }}>TESTIMONIAL</h4>
+                    <h4 classNam='text-brand'>TESTIMONIAL</h4>
                     <h2>What's Our Patients <br />
                     Says
                     </h2>
